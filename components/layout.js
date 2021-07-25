@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from "./header";
 
 export default function Layout(props) {
   return (
@@ -6,11 +7,12 @@ export default function Layout(props) {
       <Head>
         <title>billyjacoby.com{props.title}</title>
         <link
-          href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Quicksand:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Quicksand:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         ></link>
       </Head>
-      {props.children}
+      <Header />
+      <main style={{ paddingTop: "70px" }}>{props.children}</main>
     </>
   );
 }
