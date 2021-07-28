@@ -8,7 +8,8 @@ import collaboratingImg from "../images/collaborating.svg";
 
 const StyledSection = styled.section`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   /* REFACTOR INTO VARIABLES */
   background-color: ${(props) => props.backgroundColor};
   padding: ${(props) => props.topPadding || 0} 0 100px 0;
@@ -73,7 +74,45 @@ const ListItem = styled.li`
   margin: 20px 0;
 `;
 
-export default function Home() {
+//* Blog Posts
+
+const BlogHeaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const BlogPostContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 1200px;
+  align-self: center;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+`;
+
+const BlogPost = styled.div`
+  max-width: 400px;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+`;
+
+const BlogPostHeadline = styled.h5`
+  text-align: center;
+  font-size: 1.2rem;
+`;
+
+const BlogImage = styled(Image)`
+  border-radius: 10px;
+`;
+
+export default function Home({ posts }) {
   return (
     <Layout title=" - home">
       {/* Header */}
@@ -88,7 +127,7 @@ export default function Home() {
               Hi, I’m Billy Jacoby – a freelance web developer, tech enthusiast,
               and an avid learner of things
             </StyledP>
-            <Button type="button">learn more about me</Button>
+            <Button type="button">Learn more about me</Button>
           </div>
           <div>
             <Image src={sittingAtDesk} />
@@ -120,6 +159,72 @@ export default function Home() {
           </StyledDiv>
         </Container>
       </StyledSection>
+      <StyledSection backgroundColor="#30bced" flexDirection="column">
+        <HeadlineText>Blog</HeadlineText>
+        <p>Latest posts from my blog</p>
+        <BlogPostContainer>
+          {posts.slice(0, 3).map((post) => {
+            return (
+              <BlogPost key={post.id}>
+                <BlogPostHeadline>{post.title.rendered}</BlogPostHeadline>
+                <BlogImage
+                  src={post._embedded["wp:featuredmedia"][0].source_url}
+                  alt={post._embedded["wp:featuredmedia"][0].title.rendered}
+                  width="350"
+                  height="250"
+                />
+                {/* Fix excerpt */}
+                <span
+                  dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+                />
+              </BlogPost>
+            );
+          })}
+        </BlogPostContainer>
+      </StyledSection>
+      <StyledSection backgroundColor="#1f2641">
+        <Container>
+          <div>
+            <HeadlineText>Questions?</HeadlineText>
+            <HeadlineText size="1.3rem">
+              Get in touch, I'd be happy to answer them!
+            </HeadlineText>
+          </div>
+
+          <Button type="button">Contact me</Button>
+        </Container>
+        <Container>
+          <div>
+            <h4>billyjacoby.com</h4>
+            <p>
+              Thanks for visiting my website. I hope you found something that
+              can be at least a little helpful to you in your journey!
+            </p>
+          </div>
+          <div>
+            <h5>Contact</h5>
+            <p>me@billyjacoby.com</p>
+            <p>
+              <a href="https://discordapp.com/users/7369/">
+                discord - billyjacoby
+              </a>
+            </p>
+          </div>
+        </Container>
+      </StyledSection>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  let response = await fetch(
+    process.env.BASE_URL + "posts?_embed&status=publish"
+  );
+  const data = await response.json();
+  return {
+    props: {
+      posts: data,
+    },
+    revalidate: 10,
+  };
 }

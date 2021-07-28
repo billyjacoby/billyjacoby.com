@@ -146,8 +146,8 @@ export default function Header() {
           <NavList>
             {navLinks.map((item) => {
               return (
-                <NavItem>
-                  <Link key={item[0]} href={item[1]}>
+                <NavItem key={item[0]}>
+                  <Link href={item[1]}>
                     <StyledLink>{item[0]}</StyledLink>
                   </Link>
                 </NavItem>
@@ -166,8 +166,8 @@ export default function Header() {
         <NavList navIsOpen={navIsOpen}>
           {navLinks.map((item) => {
             return (
-              <NavItem>
-                <Link key={item[0]} href={item[1]}>
+              <NavItem key={item[0]}>
+                <Link href={item[1]}>
                   <StyledLink>{item[0]}</StyledLink>
                 </Link>
               </NavItem>
