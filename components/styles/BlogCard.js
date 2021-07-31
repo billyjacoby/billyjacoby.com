@@ -3,14 +3,14 @@ import Image from "next/image";
 
 //* Blog Posts
 export const BlogPostContainer = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
   max-width: 1200px;
   align-self: center;
 
   @media (max-width: 800px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 `;
 

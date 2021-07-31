@@ -7,7 +7,6 @@ import sittingAtDesk from "../images/sittingAtDesk.svg";
 import collaboratingImg from "../images/collaborating.svg";
 
 //* Styled Components
-
 import {
   StyledSectionPrimary,
   StyledSectionSecondary,
@@ -15,15 +14,10 @@ import {
 
 import { Container, Row, Column } from "../components/styles/Layout";
 
-import {
-  BlogImage,
-  BlogPost,
-  BlogPostContainer,
-  BlogPostHeadline,
-} from "../components/styles/BlogCard";
-
 import { Button } from "../components/styles/Button";
 import { StyledP, HeadlineText } from "../components/styles/Typography";
+import BlogCards from "../components/BlogCards";
+import Footer from "../components/footer";
 
 const StyledDiv = styled.div`
   padding: 0 50px;
@@ -37,20 +31,11 @@ const ListItem = styled.li`
   margin: 20px 0;
 `;
 
-const Footer = styled.footer`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: var(--tertiaryColor);
-  color: var(--secondaryColor);
-  height: 3rem;
-`;
-
 export default function Home({ posts }) {
   return (
     <Layout title=" - home">
       {/* Header */}
-      <StyledSectionPrimary>
+      <StyledSectionPrimary padding="100px">
         <Container>
           <div>
             <HeadlineText>
@@ -69,7 +54,8 @@ export default function Home({ posts }) {
           </div>
         </Container>
       </StyledSectionPrimary>
-      <StyledSectionSecondary topPadding="100px">
+
+      <StyledSectionSecondary padding="100px">
         <Container>
           <div>
             <Image src={collaboratingImg} />
@@ -94,69 +80,18 @@ export default function Home({ posts }) {
           </StyledDiv>
         </Container>
       </StyledSectionSecondary>
+
       <StyledSectionPrimary
-        backgroundColor="#30bced"
+        backgroundColor="var(--emphasisColor)"
         flexDirection="column"
-        color="#fff"
+        color="var(--secondaryColor)"
       >
         <HeadlineText>Blog</HeadlineText>
         <p>Latest posts from my blog</p>
-        <BlogPostContainer>
-          {posts.slice(0, 3).map((post) => {
-            return (
-              <BlogPost key={post.id}>
-                <BlogPostHeadline>{post.title.rendered}</BlogPostHeadline>
-                <BlogImage
-                  src={post._embedded["wp:featuredmedia"][0].source_url}
-                  alt={post._embedded["wp:featuredmedia"][0].title.rendered}
-                  width="350"
-                  height="250"
-                />
-                {/* Fix excerpt */}
-                <span
-                  dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-                />
-              </BlogPost>
-            );
-          })}
-        </BlogPostContainer>
+        <BlogCards posts={posts} numPosts={3} />
       </StyledSectionPrimary>
-      <StyledSectionPrimary>
-        <Row justifyContent="space-evenly">
-          <Column alignItems="flex-start">
-            <HeadlineText>Questions?</HeadlineText>
-            <HeadlineText size="1.3rem">
-              Get in touch, I'd be happy to answer them!
-            </HeadlineText>
-          </Column>
-          <Column>
-            <Button type="button">Contact me</Button>
-          </Column>
-        </Row>
 
-        <Container>
-          <div>
-            <h4>billyjacoby.com</h4>
-            <p>
-              Thanks for visiting my website. I hope you found something that
-              can be at least a little helpful to you in your journey!
-            </p>
-          </div>
-          <div>
-            <h5>Contact</h5>
-            <p>me@billyjacoby.com</p>
-            <p>
-              <a href="https://discordapp.com/users/7369/">
-                discord - billyjacoby
-              </a>
-            </p>
-          </div>
-        </Container>
-      </StyledSectionPrimary>
-      <Footer>
-        <div>billyjacoby.com © - 2021</div>
-        <div>Privacy Policy - Other Things</div>
-      </Footer>
+      <Footer />
     </Layout>
   );
 }

@@ -102,8 +102,8 @@ const NavItem = styled.li`
 `;
 
 const StyledLink = styled.a`
-  text-decoration: none !important;
   color: white;
+  text-decoration: none;
 `;
 
 const NavLeft = styled.div`
@@ -147,7 +147,7 @@ export default function Header() {
             {navLinks.map((item) => {
               return (
                 <NavItem key={item[0]}>
-                  <Link href={item[1]}>
+                  <Link href={item[1]} passHref>
                     <StyledLink>{item[0]}</StyledLink>
                   </Link>
                 </NavItem>
@@ -161,13 +161,13 @@ export default function Header() {
           <NavLeft>
             <SiteName>billyjacoby.com</SiteName>
           </NavLeft>
-          <NavRight onClick={() => setNavIsOpen(!navIsOpen)}>Menu</NavRight>
+          <NavRight onClick={() => setNavIsOpen(!navIsOpen)}>menu</NavRight>
         </InnerNavContainerMobile>
         <NavList navIsOpen={navIsOpen}>
           {navLinks.map((item) => {
             return (
               <NavItem key={item[0]}>
-                <Link href={item[1]}>
+                <Link href={item[1]} passHref>
                   <StyledLink>{item[0]}</StyledLink>
                 </Link>
               </NavItem>

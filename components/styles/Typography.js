@@ -6,6 +6,7 @@ export const HeadlineText = styled.p`
   font-size: ${(props) => props.size || "3rem"};
   /* REFACTOR INTO VARIABLES */
   color: ${(props) => props.color};
+  white-space: ${(props) => props.noWrap && "nowrap"};
 `;
 
 export const StyledP = styled.p`

@@ -5,6 +5,7 @@ export const Column = styled.div`
   flex-direction: column;
   justify-content: ${(props) => props.justifyContent || "center"};
   align-items: ${(props) => props.alignItems || "center"};
+  max-width: ${(props) => props.maxWidth};
 `;
 
 export const Container = styled.div`
@@ -26,6 +27,7 @@ export const Row = styled.div`
   flex-direction: row;
   justify-content: ${(props) => props.justifyContent || "center"};
   align-items: ${(props) => props.alignItems || "center"};
+  max-width: ${(props) => props.maxWidth};
 
   @media (max-width: 800px) {
     flex-direction: column;
