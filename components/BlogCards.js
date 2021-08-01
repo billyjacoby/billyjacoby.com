@@ -23,6 +23,7 @@ const BlogCards = ({ posts, numPosts }) => (
           />
           {/* Fix excerpt */}
           <span dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+          <a href={`/blog/${post.slug}`}>Read Post</a>
         </BlogPost>
       );
     })}

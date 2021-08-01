@@ -25,7 +25,8 @@ export const StyledSectionHeader = styled(StyledSection)`
   background-color: ${(props) =>
     props.backgroundColor || "var(--primaryColor)"};
   color: ${(props) => props.color || "var(--secondaryColor)"};
-  background-image: url(${pageHeaderBg});
+  background-image: ${(props) =>
+    `url(${props.bgImage})` || `url(${pageHeaderBg})`};
   background-image: url("https://new.billyjacoby.com/wp-content/uploads/2021/06/page-header_background.svg");
 
   min-height: 300px;

@@ -7,6 +7,7 @@ export const HeadlineText = styled.p`
   /* REFACTOR INTO VARIABLES */
   color: ${(props) => props.color};
   white-space: ${(props) => props.noWrap && "nowrap"};
+  text-align: ${(props) => props.textAlign || ""};
 `;
 
 export const StyledP = styled.p`

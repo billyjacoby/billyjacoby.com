@@ -7,7 +7,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
-import { Row, Column, Container } from "../components/styles/Layout";
+import { Row, Column, Container } from "./styles/Layout";
 import { StyledSectionPrimary } from "./styles/StyledSection";
 import { HeadlineText } from "./styles/Typography";
 import { Button } from "./styles/Button";

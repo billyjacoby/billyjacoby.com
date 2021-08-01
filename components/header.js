@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { Sling as Hamburger } from "hamburger-react";
 
 const NavContainer = styled.header`
   display: flex;
@@ -74,7 +75,7 @@ const SiteDescription = styled.span`
 
 const NavList = styled.ul`
   display: flex;
-  width: 100%;
+  flex-direction: row;
   justify-content: space-between;
   background-color: #1f2641;
 
@@ -161,7 +162,9 @@ export default function Header() {
           <NavLeft>
             <SiteName>billyjacoby.com</SiteName>
           </NavLeft>
-          <NavRight onClick={() => setNavIsOpen(!navIsOpen)}>menu</NavRight>
+          <NavRight onClick={() => setNavIsOpen(!navIsOpen)}>
+            <Hamburger toggled={navIsOpen} duration={0.8} size={36} />
+          </NavRight>
         </InnerNavContainerMobile>
         <NavList navIsOpen={navIsOpen}>
           {navLinks.map((item) => {
