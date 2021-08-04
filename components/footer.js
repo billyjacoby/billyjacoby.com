@@ -23,12 +23,16 @@ const FooterStyled = styled.footer`
 
 const IconRow = styled(Row)`
   justify-content: space-between;
+
+  @media (max-width: 800px) {
+    flex-direction: row;
+  }
 `;
 
 const Footer = () => (
   <>
     <StyledSectionPrimary>
-      <Row justifyContent="space-evenly" maxWidth="75%">
+      <Row justifyContent="space-evenly">
         <Column alignItems="flex-start">
           <HeadlineText>Questions?</HeadlineText>
           <HeadlineText size="1.3rem">
@@ -40,8 +44,8 @@ const Footer = () => (
         </Column>
       </Row>
 
-      <Container>
-        <Column alignItems="flex-start" maxWidth="50%">
+      <Row>
+        <Column alignItems="flex-start">
           <h4>billyjacoby.com</h4>
           <p>
             Thanks for visiting my website. I hope you found something that can
@@ -76,7 +80,7 @@ const Footer = () => (
             />
           </IconRow>
         </Column>
-      </Container>
+      </Row>
     </StyledSectionPrimary>
     <FooterStyled>
       <div>billyjacoby.com © - 2021</div>

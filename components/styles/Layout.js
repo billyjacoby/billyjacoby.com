@@ -1,13 +1,5 @@
 import styled from "styled-components";
 
-export const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: ${(props) => props.justifyContent || "center"};
-  align-items: ${(props) => props.alignItems || "center"};
-  max-width: ${(props) => props.maxWidth};
-`;
-
 export const Container = styled.div`
   max-width: 1000px;
   display: flex;
@@ -32,4 +24,13 @@ export const Row = styled.div`
   @media (max-width: 800px) {
     flex-direction: column;
   }
+`;
+
+export const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: ${(props) => props.padding || ""};
+  justify-content: ${(props) => props.justifyContent || "center"};
+  align-items: ${(props) => props.alignItems || "center"};
+  max-width: ${(props) => props.maxWidth};
 `;

@@ -18,8 +18,8 @@ const BlogCards = ({ posts, numPosts }) => (
           <BlogImage
             src={post._embedded["wp:featuredmedia"][0].source_url}
             alt={post._embedded["wp:featuredmedia"][0].title.rendered}
-            width="350"
-            height="250"
+            width="600"
+            height="411"
           />
           {/* Fix excerpt */}
           <span dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />

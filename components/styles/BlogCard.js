@@ -8,6 +8,7 @@ export const BlogPostContainer = styled.div`
   grid-gap: 10px;
   max-width: 1200px;
   align-self: center;
+  padding: 0 30px;
 
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
@@ -15,7 +16,7 @@ export const BlogPostContainer = styled.div`
 `;
 
 export const BlogPost = styled.div`
-  max-width: 400px;
+  max-width: 600px;
   padding: 0 10px;
   display: flex;
   flex-direction: column;
