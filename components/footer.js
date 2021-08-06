@@ -85,17 +85,17 @@ const Footer = () => (
             <IconRow>
               <FontAwesomeIcon
                 icon={faGithub}
-                size="1x"
+                size="3x"
                 style={{ padding: "0 10px" }}
               />
               <FontAwesomeIcon
                 icon={faLinkedin}
-                size="1x"
+                size="3x"
                 style={{ padding: "0 10px" }}
               />
               <FontAwesomeIcon
                 icon={faTwitter}
-                size="1x"
+                size="3x"
                 style={{ padding: "0 10px" }}
               />
             </IconRow>
