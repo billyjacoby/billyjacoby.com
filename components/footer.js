@@ -3,12 +3,7 @@ import { HeadlineText } from "./styles/Typography";
 import { Button } from "./styles/Button";
 import { StyledSectionPrimary } from "./styles/StyledSection";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithub,
-  faLinkedin,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
+import { SocialIcon } from "react-social-icons";
 
 const FooterDiv = styled.div`
   display: flex;
@@ -47,7 +42,7 @@ const StyledFooter = styled.footer`
 
 const IconRow = styled.div`
   display: flex;
-  flex: 1;
+  justify-content: space-evenly;
 `;
 
 const Footer = () => (
@@ -83,32 +78,17 @@ const Footer = () => (
               </div>
             </Row>
             <IconRow>
-              <FontAwesomeIcon
-                icon={faGithub}
-                size="3x"
-                style={{
-                  padding: "0 10px",
-                  minHeight: "100px",
-                  minWidth: "100px",
-                }}
+              <SocialIcon
+                url="https://twitter.com/billyjacoby"
+                bgColor="var(--secondaryColor)"
               />
-              <FontAwesomeIcon
-                icon={faLinkedin}
-                size="3x"
-                style={{
-                  padding: "0 10px",
-                  minHeight: "100px",
-                  minWidth: "100px",
-                }}
+              <SocialIcon
+                url="https://github.com/billyjacoby"
+                bgColor="var(--secondaryColor)"
               />
-              <FontAwesomeIcon
-                icon={faTwitter}
-                size="3x"
-                style={{
-                  padding: "0 10px",
-                  minHeight: "100px",
-                  minWidth: "100px",
-                }}
+              <SocialIcon
+                url="https://www.linkedin.com/in/williamjacoby/"
+                bgColor="var(--secondaryColor)"
               />
             </IconRow>
           </Column>
