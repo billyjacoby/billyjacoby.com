@@ -86,17 +86,29 @@ const Footer = () => (
               <FontAwesomeIcon
                 icon={faGithub}
                 size="3x"
-                style={{ padding: "0 10px" }}
+                style={{
+                  padding: "0 10px",
+                  minHeight: "100px",
+                  minWidth: "100px",
+                }}
               />
               <FontAwesomeIcon
                 icon={faLinkedin}
                 size="3x"
-                style={{ padding: "0 10px" }}
+                style={{
+                  padding: "0 10px",
+                  minHeight: "100px",
+                  minWidth: "100px",
+                }}
               />
               <FontAwesomeIcon
                 icon={faTwitter}
                 size="3x"
-                style={{ padding: "0 10px" }}
+                style={{
+                  padding: "0 10px",
+                  minHeight: "100px",
+                  minWidth: "100px",
+                }}
               />
             </IconRow>
           </Column>
