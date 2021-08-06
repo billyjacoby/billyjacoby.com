@@ -9,7 +9,7 @@ import {
   StyledSectionSecondary,
   StyledSectionHeader,
 } from "../components/styles/StyledSection";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 
 import BlogCards from "../components/BlogCards";
 

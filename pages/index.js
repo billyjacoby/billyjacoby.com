@@ -17,7 +17,7 @@ import { Container, Row, Column } from "../components/styles/Layout";
 import { Button } from "../components/styles/Button";
 import { StyledP, HeadlineText } from "../components/styles/Typography";
 import BlogCards from "../components/BlogCards";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 
 const ColoredSpan = styled.span`
   color: ${(props) => props.color};
